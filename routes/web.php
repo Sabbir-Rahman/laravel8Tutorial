@@ -33,15 +33,17 @@ Route::get('/redirect', function () {
 
 //now at laravel 8 first have to import the controllers
 
+
 Route::get("userController/{user}",[Users::class, 'index']);
 Route::get("users",[userController::class,'loadView']);
 Route::get("blade",[bladeTutorial::class, 'viewLoad']);
 Route::post("form",[form::class,'getData']);
 
 
+
 Route::view('hello','hello');
 Route::view('about','about');
-Route::view('login','form');
+Route::view('login','form');//login form
 
 
 
