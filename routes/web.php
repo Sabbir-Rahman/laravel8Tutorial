@@ -5,6 +5,7 @@ use App\Http\Controllers\Users;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\bladeTutorial;
 use App\Http\Controllers\form;
+use App\Http\Controllers\UserAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,10 +48,15 @@ Route::view('login','form');//login form
 
 
 
+
+
+Route::get('loginMysql',[UserAuth::class,'login']);
+Route::get('register',[UserAuth::class,'register']);
+Route::post('create',[UserAuth::class,'create'])->name('auth.create');
+Route::post('check',[UserAuth::class,'check'])->name('auth.check');
 Route::get('/{name}', function ($name) {
     return view('name',['name'=>$name]);
 });
-
 
 
 
