@@ -6,6 +6,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\bladeTutorial;
 use App\Http\Controllers\form;
 use App\Http\Controllers\UserAuth;
+use App\Http\Controllers\database;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('/redirect', function () {
     return redirect('hello');
 });
 
+Route::get("database",[database::class,'index']);
 
 
 Route::view("home","home");
@@ -42,6 +44,7 @@ Route::view("noAccess","noAccess");
 
 Route::get("userController/{user}",[Users::class, 'index']);
 Route::get("users",[userController::class,'loadView']);
+
 Route::get("blade",[bladeTutorial::class, 'viewLoad']);
 Route::post("form",[form::class,'getData']);
 
