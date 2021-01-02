@@ -10,6 +10,7 @@ use App\Http\Controllers\database;
 use App\Http\Controllers\httpClient;
 use App\Http\Controllers\loginSession;
 use App\Http\Controllers\addMember;
+use App\Http\Controllers\fileUpload;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +52,13 @@ Route::get("httpClient",[httpClient::class,'index']);
 
 Route::get("blade",[bladeTutorial::class, 'viewLoad']);
 Route::post("form",[form::class,'getData']);
+
+Route::post("uploadFile",[fileUpload::class,'index']);
+
 Route::post("loginWithSession",[loginSession::class,'userLogin']);
 Route::post("addingMember",[addMember::class,'add']);
 
-
+Route::view('fileUpload','fileUpload');
 
 Route::view('hello','hello');
 Route::view('about','about');
