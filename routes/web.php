@@ -7,6 +7,7 @@ use App\Http\Controllers\bladeTutorial;
 use App\Http\Controllers\form;
 use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\database;
+use App\Http\Controllers\httpClient;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::view("noAccess","noAccess");
 
 Route::get("userController/{user}",[Users::class, 'index']);
 Route::get("users",[userController::class,'loadView']);
+Route::get("httpClient",[httpClient::class,'index']);
 
 Route::get("blade",[bladeTutorial::class, 'viewLoad']);
 Route::post("form",[form::class,'getData']);
