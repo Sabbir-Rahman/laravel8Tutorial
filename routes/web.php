@@ -8,6 +8,7 @@ use App\Http\Controllers\form;
 use App\Http\Controllers\UserAuth;
 use App\Http\Controllers\database;
 use App\Http\Controllers\httpClient;
+use App\Http\Controllers\loginSession;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::get("httpClient",[httpClient::class,'index']);
 
 Route::get("blade",[bladeTutorial::class, 'viewLoad']);
 Route::post("form",[form::class,'getData']);
+Route::post("loginWithSession",[loginSession::class,'userLogin']);
 
 
 
@@ -56,12 +58,37 @@ Route::view('hello','hello');
 Route::view('about','about');
 Route::view('login','form');//login form
 
+//Route::view('loginSession','loginSession');
 
-
+Route::view('profile','profile');
 
 
 Route::get('loginMysql',[UserAuth::class,'login']);
 Route::get('register',[UserAuth::class,'register']);
+
+
+Route::get('loginSession',function (){
+    if(session()->has('user'))
+    {
+        //if already login then not login again
+        return redirect('profile');
+
+    }
+    return view('loginSession');
+});
+
+
+
+Route::get('logout',function (){
+    if(session()->has('user'))
+    {
+        //delete the session data
+        session()->pull('user');
+    }
+    return redirect('loginSession');
+})->name('logout');
+
+
 Route::post('create',[UserAuth::class,'create'])->name('auth.create');
 Route::post('check',[UserAuth::class,'check'])->name('auth.check');
 Route::get('/{name}', function ($name) {
