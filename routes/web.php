@@ -28,6 +28,11 @@ Route::get('/redirect', function () {
     return redirect('hello');
 });
 
+
+
+Route::view("home","home");
+Route::view("noAccess","noAccess");
+
 //call controller
 //Route::get("path","controller file");
 //in laravel 7 Route::get("userController","Users@index");
