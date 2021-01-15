@@ -10,7 +10,8 @@ class listdemo extends Controller
 {
     function view(){
 
-        return member::all();
-        //return view('list');
+
+        $data = member::all();
+        return view('list',['members'=>$data]);
     }
 }
