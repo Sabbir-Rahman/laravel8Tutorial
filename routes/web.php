@@ -12,6 +12,7 @@ use App\Http\Controllers\loginSession;
 use App\Http\Controllers\addMember;
 use App\Http\Controllers\fileUpload;
 use App\Http\Controllers\listdemo;
+use App\Http\Controllers\paginationList;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,6 +75,7 @@ Route::view('profile','profile');
 Route::get('loginMysql',[UserAuth::class,'login']);
 Route::get('register',[UserAuth::class,'register']);
 
+Route::get('paginationList',[paginationList::class,'show'])->name('paginationList');
 
 Route::get('loginSession',function (){
     if(session()->has('user'))
