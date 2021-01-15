@@ -24,6 +24,6 @@
 
 <style>
     .w-5{
-        display: none;
+        width: 25px;
     }
 </style>
