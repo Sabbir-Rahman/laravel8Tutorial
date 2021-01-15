@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\member;
 use Illuminate\Http\Request;
 
 class paginationList extends Controller
@@ -9,6 +10,7 @@ class paginationList extends Controller
     //
     function show()
     {
-        return view('paginationList');
+        $data = member::all();
+        return view('paginationList',['members'=>$data]);
     }
 }
