@@ -11,7 +11,7 @@ use App\Http\Controllers\httpClient;
 use App\Http\Controllers\loginSession;
 use App\Http\Controllers\addMember;
 use App\Http\Controllers\fileUpload;
-
+use App\Http\Controllers\listdemo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,6 +99,9 @@ Route::get('logout',function (){
 
 Route::post('create',[UserAuth::class,'create'])->name('auth.create');
 Route::post('check',[UserAuth::class,'check'])->name('auth.check');
+
+Route::get('list',[listdemo::class,'view'])->name('list-view');
+
 Route::get('/{name}', function ($name) {
     return view('name',['name'=>$name]);
 });

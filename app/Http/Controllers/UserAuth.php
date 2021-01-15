@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\demo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\UserLogin;
+
 
 class UserAuth extends Controller
 {
