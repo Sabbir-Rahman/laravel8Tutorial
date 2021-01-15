@@ -13,6 +13,7 @@ use App\Http\Controllers\addMember;
 use App\Http\Controllers\fileUpload;
 use App\Http\Controllers\listdemo;
 use App\Http\Controllers\paginationList;
+use App\Http\Controllers\dataDelete;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +47,8 @@ Route::view("noAccess","noAccess");
 
 //now at laravel 8 first have to import the controllers
 
+Route::get('dataDelete',[dataDelete::class,'show']);
+Route::get('delete/{id}',[dataDelete::class,'delete']);
 
 Route::get("userController/{user}",[Users::class, 'index']);
 Route::get("users",[userController::class,'loadView']);
