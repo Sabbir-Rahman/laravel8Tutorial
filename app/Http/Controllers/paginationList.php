@@ -10,7 +10,7 @@ class paginationList extends Controller
     //
     function show()
     {
-        $data = member::all();
+        $data = member::paginate(1);
         return view('paginationList',['members'=>$data]);
     }
 }

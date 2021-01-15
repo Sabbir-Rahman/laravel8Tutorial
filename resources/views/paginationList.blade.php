@@ -1,10 +1,19 @@
 <h2>Welcome from pagination list</h2>
 
-@foreach($members as $member)
+<table border="1">
     <tr>
-        <td>{{$member['id']}}</td>
-        <td>{{$member['name']}}</td>
-        <td>{{$member['email']}}</td>
-        <td>{{$member['address']}}</td>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Address</td>
     </tr>
-@endforeach
+
+    @foreach($members as $member)
+        <tr>
+            <td>{{$member['id']}}</td>
+            <td>{{$member['name']}}</td>
+            <td>{{$member['email']}}</td>
+            <td>{{$member['address']}}</td>
+        </tr>
+    @endforeach
+</table>
